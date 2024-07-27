@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+  
+  :root {
+    --StrawberryRed: hsl(354, 84%, 57%);
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 0.5px;
+  }
+  
+  .error-message {
+    color: var(--StrawberryRed);
+    font-weight: bolder;
+    font-size: 13px;
+  }
