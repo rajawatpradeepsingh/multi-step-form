@@ -1,8 +1,22 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# React Multi-Step Form using Formik, Tailwind and Yup.
 
-Currently, two official plugins are available:
+This document outlines the functionalities and implementation details of the app.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Install and Run
+
+To install and run the app locally, follow these steps:
+
+```bash
+  git clone https://github.com/rajawatpradeepsingh/multi-step-form.git
+  cd  multi-step-form
+  npm install
+  npm run dev
+```
+
+
+## Live Demo - 
+
+Link - https://multi-step-form-swart-xi.vercel.app/
+
