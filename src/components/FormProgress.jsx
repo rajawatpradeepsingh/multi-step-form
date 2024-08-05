@@ -1,6 +1,7 @@
 import { FaCheck } from "react-icons/fa";
 
-export default function Progress({ formStep }) {
+export default function Progress({ formStep,setFormStep,handleNextStep,formik }) {
+
   return (
     <div className="flex flex-col px-7 py-5 text-sm shadow-right md:w-[500px] lg:w-[500px] ">
       <div className="flex">
@@ -20,6 +21,11 @@ export default function Progress({ formStep }) {
           )}
         </div>
         <div className="pl-2.5 hidden md:block">
+          <button
+           disabled={formStep === 0}
+          onClick={() => {formStep === 1 || formStep === 2 || formStep === 3 ? setFormStep(0):
+            handleNextStep(formik)
+          }}>
           <h4
             className={
               formStep === 0
@@ -29,6 +35,7 @@ export default function Progress({ formStep }) {
           >
             App details
           </h4>
+          </button>
         </div>
       </div>
       <div className="border-l border-gray-300 h-4 ml-[24px]"></div>
@@ -53,6 +60,11 @@ export default function Progress({ formStep }) {
           )}
         </div>
         <div className="pl-2.5 hidden md:block">
+          <button
+          disabled={formStep === 1}
+           onClick={() => {formStep === 2 || formStep === 3 ? setFormStep(1):
+            handleNextStep(formik)
+          }}>
           <h4
             className={
               formStep === 1
@@ -64,6 +76,7 @@ export default function Progress({ formStep }) {
           >
             Add repository and branch
           </h4>
+          </button>
         </div>
       </div>
       <div className="border-l border-gray-300 h-4 ml-[24px]"></div>
@@ -88,6 +101,11 @@ export default function Progress({ formStep }) {
           )}
         </div>
         <div className="pl-2.5 hidden md:block">
+        <button
+        disabled={formStep === 0 ||formStep === 2}
+         onClick={() => {formStep === 3?setFormStep(2):
+          handleNextStep(formik)
+        }}>
           <h4
             className={
               formStep === 2
@@ -99,6 +117,7 @@ export default function Progress({ formStep }) {
           >
             Build settings
           </h4>
+          </button>
         </div>
       </div>
       <div className="border-l border-gray-300 h-4 ml-[24px]"></div>
@@ -123,6 +142,11 @@ export default function Progress({ formStep }) {
           )}
         </div>
         <div className="pl-2.5 hidden md:block">
+        <button
+        disabled={formStep === 0 || formStep===1||formStep===3}
+         onClick={() => {
+          handleNextStep(formik)
+        }}>
           <h4
             className={
               formStep === 3
@@ -134,6 +158,7 @@ export default function Progress({ formStep }) {
           >
             Review
           </h4>
+          </button>
         </div>
       </div>
     </div>

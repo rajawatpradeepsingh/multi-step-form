@@ -113,26 +113,26 @@ export default function FormContainer() {
 
   return (
     <>
-      <FormProgress formStep={formStep} />
       <Routes>
         <Route
           path="/"
           element={
-            <div className="flex flex-col py-[20px] px-[30px] w-svw max-h-screen overflow-y-auto mb-[20px]">
-              <div className="flex flex-col justify-around h-[80px] ">
-                <h1 className="text-black font-bold">{formTitles[formStep]}</h1>
-                <p className="text-gray-400">{formSubHeadings[formStep]}</p>
-              </div>
               <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}
                 onSubmit={onSubmit}
               >
                 {(formik) => (
-                  <Form className="h-full flex flex-col">
+                  <Form className="h-full w-full flex flex-row">
+                    <FormProgress formStep={formStep} setFormStep={setFormStep} handleNextStep={handleNextStep} formik={formik}/>
+                    <div className="flex flex-col py-[20px] px-[30px] w-full max-h-screen overflow-y-auto mb-[200px] lg:mb-[100px]">
+                    <div className="flex flex-col justify-around h-[80px] ">
+                <h1 className="text-black font-bold">{formTitles[formStep]}</h1>
+                <p className="text-gray-400">{formSubHeadings[formStep]}</p>
+              </div>
                     {pageDisplay(formik)}
                     <hr />
-                    <div className="flex flex-col lg:flex-row w-[200px] lg:gap-0 gap-3 lg:w-[300px] justify-between self-end mt-[20px]">
+                    <div className="flex flex-col lg:flex-row w-[200px] fixed bottom-10 lg:gap-0 gap-3 lg:w-[300px] justify-between self-end pt-[20px]">
                       <button
                         className={
                           formStep === 4
@@ -184,11 +184,11 @@ export default function FormContainer() {
                           {formik.isSubmitting ? "Loading..." : "Submit"}
                         </button>
                       )}
-                    </div>
+                    </div> </div>
                   </Form>
                 )}
               </Formik>
-            </div>
+           
           }
         />
         <Route path="/complete" element={<Complete />} />
